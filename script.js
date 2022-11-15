@@ -21,6 +21,9 @@ function createModel() {
     // Add a single input layer
     model.add(tf.layers.dense({inputShape: [1], units: 1, useBias: true}));
 
+    // hidden layer 추가
+    model.add(tf.layers.dense({units: 1, useBias: true}));
+
     // Add an output layer
     model.add(tf.layers.dense({units: 1, useBias: true}));
 
@@ -146,7 +149,7 @@ async function run() {
     testModel(model, data, tensorData, 100+200);
 
     await trainModel(model, inputs, labels, 500);
-    testModel(model, data, tensorData, 100+200+500);
+    testModel(model, data, tensorData, 100+200+300);
 }
 
 
